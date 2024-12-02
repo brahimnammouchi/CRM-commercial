@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+<<<<<<< HEAD
+    "axios": "^1.3.4",
+=======
+>>>>>>> bd5e86ccd77d3904b2f6ec5686edb99584c2c581
+    "cors": "^2.8.5"
+  },
+  "scripts": {
+    "start": "node your-script.js"
+  }
+}

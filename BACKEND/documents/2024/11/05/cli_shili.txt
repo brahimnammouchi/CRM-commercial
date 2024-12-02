@@ -1,0 +1,6 @@
+python -m pip install -U matplotlib
+
+pip i mplot3d
+pip install pandas
+
+pip install -U scikit-learn scipy matplotlib

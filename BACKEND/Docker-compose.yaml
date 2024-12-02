@@ -1,0 +1,36 @@
+version: "3.9"
+   
+services:
+  db:
+    image: postgres:14.2
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  web:
+    build:
+      context: .
+    command: python manage.py runserver
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    depends_on:
+      - db
+  front:
+    build:
+      context: ./ReactFrontend
+      dockerfile: ./Dockerfiledocker
+    command: npm start
+    volumes:
+      - ./src:/app/src
+      - ./package.json:/app/package.json
+    ports:
+      - "8081:8080"
+    tty: true
